@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# Iterate through files in the current directory (excluding hidden files)
+for file in *; do
+  # Check if the item is a file (optional, but good practice)
+  if [ -f "$file" ]; then
+    # Use cut to get the part of the name after the first dash
+    # -d '-' specifies the delimiter as a dash
+    # -f 2- specifies the second field to the end
+    part_after_dash=$(echo "$file" | cut -d '-' -f 2-)
+    # Display the result
+    echo "$part_after_dash"
+  fi
+done
