@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# hytoip
+PID=$(pgrep 7-highlander)
+if [ -z "$PID" ]; then
+  echo "7-highlander process not found."
+else
+  kill -9 $PID
+  echo "Sent SIGKILL (signal 9) to process $PID."
+fi
