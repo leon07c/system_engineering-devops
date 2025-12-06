@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# stop_infinity_alt.sh - Stop 4-to_infinity_and_beyond without kill/killall
+
+# Find PIDs of the target process
+PIDS=$(pgrep -f "4-to_infinity_and_beyond")
+
+# Exit with error if process not found
+if [ -z "$PIDS" ]; then
+  exit 1
+fi
+
+# Terminate each process using Python's os.kill system call
+# This bypasses the kill command while sending SIGTERM (signal 15)
+for PID in $PIDS; do
+  python3 -c "import os; os.kill($PID, 15)"
+done
+
+exit 0
