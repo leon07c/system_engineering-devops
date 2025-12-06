@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# find_bash.sh - Display only bash processes from the full process list
+
+# shellcheck disable=SC2009
+ps auxf | grep bash
