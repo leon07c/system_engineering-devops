@@ -1,3 +1,10 @@
 #!/usr/bin/env bash
-# This script forcibly terminates the 7-highlander process using SIGKILL
-kill -9 $(pgrep 7-highlander)
+# 8‑beheaded_process – forcibly kill any 7‑highlander process
+
+# Get the PID(s) of the target process (full command‑line match)
+pid=$(pgrep -f "7-highlander")
+
+# If a PID was found, send SIGKILL to it
+if [ -n "$pid" ]; then
+  kill -9 $pid
+fi
