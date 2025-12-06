@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# 67-stop_me_if_you_can - Stop 7-highlander process
+# Modified from 6-stop_me_if_you_can
+# Cannot use kill or killall commands
+
+# Find PIDs of the target process
+PIDS=$(pgrep -f "7-highlander")
+
+# Exit with error if process not found
+if [ -z "$PIDS" ]; then
+  exit 1
+fi
+
+# Send SIGTERM to each PID using Python's os.kill
+for PID in $PIDS; do
+  python3 -c "import os; os.kill($PID, 15)"
+done
+
+exit 0
