@@ -1,17 +1,14 @@
 #!/usr/bin/env bash
 # stop_infinity.sh - Programmatically stop the 4-to_infinity_and_beyond process
-# This demonstrates finding a process by name and terminating it with kill.
 
-# Step 1: Find the PID(s) of the target process using pgrep
-# pgrep -f matches against the full command line to find our script
+# Find the PID(s) of the target process using pgrep
 PIDS=$(pgrep -f "4-to_infinity_and_beyond")
 
-# Step 2: Check if process exists and kill it
+# Check if process exists and kill it
 if [ -n "$PIDS" ]; then
-  # Kill the process(es)
-  kill $PIDS
-  echo "Terminated 4-to_infinity_and_beyond process(es): $PIDS"
+  # Kill the process(es) - quoted to prevent globbing/word splitting
+  kill "$PIDS"
+  exit 0
 else
-  echo "Error: 4-to_infinity_and_beyond process not found."
   exit 1
 fi
