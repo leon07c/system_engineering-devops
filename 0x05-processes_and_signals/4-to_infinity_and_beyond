@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# infinite_loop.sh - Demonstrates an infinite loop with sleep
+# This script continuously prints a message every 2 seconds.
+# Press Ctrl+C to stop execution.
+
+while true; do
+  # Display the phrase
+  echo "To infinity and beyond"
+  
+  # Pause for 2 seconds before the next iteration
+  sleep 2
+done
