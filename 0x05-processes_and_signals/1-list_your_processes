@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# process_monitor.sh - Display all running processes with hierarchy
+# This script shows a comprehensive view of system processes including
+# background services, with visual parent-child relationships.
+
+# ps command options:
+#   a: Show processes from all users (not just the current user)
+#   u: User-oriented output format (displays USER, PID, %CPU, %MEM, etc.)
+#   x: Include processes without a controlling terminal (TTY)
+#      This captures background daemons and system services
+#   f: ASCII art forest/tree view showing process hierarchy with indentation
+#      Child processes appear indented under their parent process
+
+ps auxf
