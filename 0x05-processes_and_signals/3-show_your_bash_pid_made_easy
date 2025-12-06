@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# find_bash_pid_name.sh - Display PID and process name for all processes containing 'bash'
+
+pgrep -l bash
