@@ -1,10 +1,5 @@
-#!/usr/bin/env bash
-# Trap SIGTERM (signal 15)
-trap 'echo "I am invincible!!!"' SIGTERM
+#!/usr/bin/env bash 
+# This script forcefully terminates the "7-highlander" process using the SIGKILL singnal (9)
 
-while true
-do
-    echo "To infinity and beyond"
-    sleep 2
-done
+pkill -9 -f "7-highlander"
 
