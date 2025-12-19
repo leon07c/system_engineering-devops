@@ -1,18 +1,10 @@
 #!/usr/bin/env bash
+# Trap SIGTERM (signal 15)
+trap 'echo "I am invincible!!!"' SIGTERM
 
-# Find the Process ID (PID) of the 7-highlander process
-# The -f flag searches the full command line, ensuring we match the correct process
-PID=$(pgrep -f "7-highlander")
+while true
+do
+    echo "To infinity and beyond"
+    sleep 2
+done
 
-# Check if the process was found
-if [ -z "$PID" ]; then
-    echo "Error: 7-highlander process not found"
-    exit 1
-fi
-
-# Send SIGKILL (signal 9) to forcibly terminate the process
-# Unlike SIGTERM, SIGKILL cannot be caught, blocked, or ignored by the process
-# This makes it effective against "invincible" processes that handle SIGTERM
-kill -9 "$PID"
-
-echo "Successfully sent SIGKILL to 7-highlander process (PID: $PID)"
