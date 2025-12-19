@@ -1,13 +1,4 @@
-#!/usr/bin/env bash 
-# This script forcefully terminates the "7-highlander" process using the SIGKILL singnal (9)
+#!/usr/bin/env bash
+# Stop me if you can
 
-pkill -9 -f "7-highlander"
-
-# Example command to find and kill a process by name
-PID=$(pgrep 7-highlander)
-if [ -n "$PID" ]; then
-    kill "$PID"
-    echo "Process 7-highlander (PID $PID) killed."
-else
-    echo "Process 7-highlander not found."
-fi
+pkill -f 4-to_infinity_and_beyond
