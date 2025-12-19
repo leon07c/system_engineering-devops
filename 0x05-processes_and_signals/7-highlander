@@ -1,20 +1,11 @@
 #!/usr/bin/env bash
-# 67-stop_me_if_you_can - Stop 7-highlander process
-# Modified from 6-stop_me_if_you_can
-# Constraint: Cannot use kill or killall commands
+# Trap SIGTERM and print message instead of exiting
+trap 'echo "I am invincible!!!"' SIGTERM
 
-# Find PIDs of the target process
-PIDS=$(pgrep -f "7-highlander")
-
-# Exit with error if process not found
-if [ -z "$PIDS" ]; then
-  echo "Error: 7-highlander process not found" >&2
-  exit 1
-fi
-
-# Send SIGTERM (signal 15) to each PID using Python's os.kill
-for PID in $PIDS; do
-  python3 -c "import os; os.kill(int($PID), 15)"
+# Infinite loop
+while true
+do
+    echo "To infinity and beyond"
+    sleep 2
 done
 
-exit 0
